@@ -6,13 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xinlincai.github.io">
-  <title>MySQL索引 锁 存储引擎 | 鑫宇的个人博客</title>
+  <title>MySQL索引 锁 存储引擎 | XinlinCai-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="数据库索引何为索引？为什么要使用索引？索引是一种用于快速查询和检索数据的数据结构。常见的索引结构有: B 树， B+树和 Hash。 查询数据最基本的方式为全表扫描，即将整张表的数据全部或者分批次加载到内存中，磁盘存储的最小单位为块(512Byte)，由多行数据来组成。我们在查询数据时将块加载进内存，然后逐个块的去轮寻，找到目标数据即返回，这种查询方式是非常慢的，所以我们就需要引入一种更高效的查询">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL索引 锁 存储引擎">
 <meta property="og:url" content="https://xinlincai.github.io/2021/06/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/index.html">
-<meta property="og:site_name" content="鑫宇的个人博客">
+<meta property="og:site_name" content="XinlinCai-Blog">
 <meta property="og:description" content="数据库索引何为索引？为什么要使用索引？索引是一种用于快速查询和检索数据的数据结构。常见的索引结构有: B 树， B+树和 Hash。 查询数据最基本的方式为全表扫描，即将整张表的数据全部或者分批次加载到内存中，磁盘存储的最小单位为块(512Byte)，由多行数据来组成。我们在查询数据时将块加载进内存，然后逐个块的去轮寻，找到目标数据即返回，这种查询方式是非常慢的，所以我们就需要引入一种更高效的查询">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://xinlincai.github.io/2021/06/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/2.png">
@@ -28,7 +28,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://xinlincai.github.io/2021/06/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/2.png">
   
-    <link rel="alternative" href="/atom.xml" title="鑫宇的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="XinlinCai-Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">

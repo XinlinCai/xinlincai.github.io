@@ -6,13 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xinlincai.github.io">
-  <title>CPU的调度策略 | 鑫宇的个人博客</title>
+  <title>CPU的调度策略 | XinlinCai-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="什么是CPU调度？调度即为切换-&gt; 获取到 switch_to(cur, next) 中的 next，一旦获得到next 便切换到 next； 如下图所示：PID1的进程正在执行，当执行到一定程度后由于阻塞或者时间片到时等原因，不让它继续执行了。现在操作系统需要切换另外一个进程去执行，但是现在就绪队列中有两个进程分别为PID2、PID3。PID2是先前read() 引发磁盘读阻塞现在又处于就">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CPU的调度策略">
 <meta property="og:url" content="https://xinlincai.github.io/2021/07/02/CPU%E7%9A%84%E8%B0%83%E5%BA%A6%E7%AD%96%E7%95%A5/index.html">
-<meta property="og:site_name" content="鑫宇的个人博客">
+<meta property="og:site_name" content="XinlinCai-Blog">
 <meta property="og:description" content="什么是CPU调度？调度即为切换-&gt; 获取到 switch_to(cur, next) 中的 next，一旦获得到next 便切换到 next； 如下图所示：PID1的进程正在执行，当执行到一定程度后由于阻塞或者时间片到时等原因，不让它继续执行了。现在操作系统需要切换另外一个进程去执行，但是现在就绪队列中有两个进程分别为PID2、PID3。PID2是先前read() 引发磁盘读阻塞现在又处于就">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://xinlincai.github.io/2021/07/02/CPU%E7%9A%84%E8%B0%83%E5%BA%A6%E7%AD%96%E7%95%A5/1.png">
@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://xinlincai.github.io/2021/07/02/CPU%E7%9A%84%E8%B0%83%E5%BA%A6%E7%AD%96%E7%95%A5/1.png">
   
-    <link rel="alternative" href="/atom.xml" title="鑫宇的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="XinlinCai-Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
