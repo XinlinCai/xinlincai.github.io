@@ -5,30 +5,30 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="https://xinlincai.github.io">
   <title>TCP那些事 | 鑫宇的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="运输层协议为运行在不同主机上的应用进程之间的逻辑通信； TCP与UDP为两种传输层的协议，TCP(传输控制协议)为调用它的应用程序提供一个可靠的、面向连接的服务，而UDP(用户数据协议)为调用它的应用程序提供一种不可靠的、无连接的服务； TCP与UDP最基本的责任是将两个端系统间IP的交付服务扩展为运行在端系统上的两个进程之间的交付服务；">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TCP那些事">
-<meta property="og:url" content="http://yoursite.com/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/index.html">
+<meta property="og:url" content="https://xinlincai.github.io/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/index.html">
 <meta property="og:site_name" content="鑫宇的个人博客">
 <meta property="og:description" content="运输层协议为运行在不同主机上的应用进程之间的逻辑通信； TCP与UDP为两种传输层的协议，TCP(传输控制协议)为调用它的应用程序提供一个可靠的、面向连接的服务，而UDP(用户数据协议)为调用它的应用程序提供一种不可靠的、无连接的服务； TCP与UDP最基本的责任是将两个端系统间IP的交付服务扩展为运行在端系统上的两个进程之间的交付服务；">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/2.png">
-<meta property="og:image" content="http://yoursite.com/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/1.png">
-<meta property="og:image" content="http://yoursite.com/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/7.png">
-<meta property="og:image" content="http://yoursite.com/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/8.png">
-<meta property="og:image" content="http://yoursite.com/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/3.png">
-<meta property="og:image" content="http://yoursite.com/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/4.png">
-<meta property="og:image" content="http://yoursite.com/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/5.png">
-<meta property="og:image" content="http://yoursite.com/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/6.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/2.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/1.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/7.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/8.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/3.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/4.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/5.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/6.png">
 <meta property="article:published_time" content="2021-06-11T03:31:14.000Z">
 <meta property="article:modified_time" content="2021-07-21T12:55:13.608Z">
 <meta property="article:author" content="rain">
 <meta property="article:tag" content="计网">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/2.png">
+<meta name="twitter:image" content="https://xinlincai.github.io/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/2.png">
   
     <link rel="alternative" href="/atom.xml" title="鑫宇的个人博客" type="application/atom+xml">
   
@@ -83,7 +83,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/hermit-rain" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/XinlinCai" title="github"><i class="icon-github"></i></a>
 		        
 			</div>
 		</nav>
@@ -118,7 +118,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/hermit-rain" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/XinlinCai" title="github"><i class="icon-github"></i></a>
 			        
 				</div>
 			</nav>
@@ -529,7 +529,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hermit-rain.github.io/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xinlincai.github.io/2021/06/11/TCP%E9%82%A3%E4%BA%9B%E4%BA%8B/" alt="微信分享二维码">
     </div>
 </div>
 

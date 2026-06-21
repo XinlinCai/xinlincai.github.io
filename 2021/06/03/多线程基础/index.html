@@ -5,26 +5,26 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="https://xinlincai.github.io">
   <title>java多线程基础 | 鑫宇的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、 java进程与线程 运行一个Java程序会产生一个Java进程，每一个Java进程至少包含三个线程：main() 主线程、gc() 线程、异常处理线程 每一个进程对应一个JVM实例，多个线程共享JVM里面的堆，每一个线程都有自己私有的栈 Java采用单线程编程模型，如果程序里面没有创建线程的话，只会自动创建一个线程-&gt;主线程 Java程序启动时，主线程立刻运行，在执行完各种子线程的关闭">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java多线程基础">
-<meta property="og:url" content="http://yoursite.com/2021/06/03/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:url" content="https://xinlincai.github.io/2021/06/03/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="鑫宇的个人博客">
 <meta property="og:description" content="一、 java进程与线程 运行一个Java程序会产生一个Java进程，每一个Java进程至少包含三个线程：main() 主线程、gc() 线程、异常处理线程 每一个进程对应一个JVM实例，多个线程共享JVM里面的堆，每一个线程都有自己私有的栈 Java采用单线程编程模型，如果程序里面没有创建线程的话，只会自动创建一个线程-&gt;主线程 Java程序启动时，主线程立刻运行，在执行完各种子线程的关闭">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2021/06/03/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/4.png">
-<meta property="og:image" content="http://yoursite.com/2021/06/03/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/6.png">
-<meta property="og:image" content="http://yoursite.com/2021/06/03/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/7.png">
-<meta property="og:image" content="http://yoursite.com/2021/06/03/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/8.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/06/03/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/4.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/06/03/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/6.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/06/03/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/7.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/06/03/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/8.png">
 <meta property="article:published_time" content="2021-06-03T06:38:51.000Z">
 <meta property="article:modified_time" content="2021-10-08T01:49:11.131Z">
 <meta property="article:author" content="rain">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2021/06/03/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/4.png">
+<meta name="twitter:image" content="https://xinlincai.github.io/2021/06/03/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/4.png">
   
     <link rel="alternative" href="/atom.xml" title="鑫宇的个人博客" type="application/atom+xml">
   
@@ -79,7 +79,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/hermit-rain" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/XinlinCai" title="github"><i class="icon-github"></i></a>
 		        
 			</div>
 		</nav>
@@ -114,7 +114,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/hermit-rain" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/XinlinCai" title="github"><i class="icon-github"></i></a>
 			        
 				</div>
 			</nav>
@@ -470,7 +470,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hermit-rain.github.io/2021/06/03/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xinlincai.github.io/2021/06/03/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
     </div>
 </div>
 

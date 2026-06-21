@@ -5,35 +5,35 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="https://xinlincai.github.io">
   <title>JVM垃圾回收机制 | 鑫宇的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="对象被判定为垃圾的标准对于java对象来讲，当没有被任何对象所引用时，该对象就是没用的。对于系统而言它就是垃圾，其占据的内存就要被释放，同时该对象也要被销毁。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM垃圾回收机制">
-<meta property="og:url" content="http://yoursite.com/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/index.html">
+<meta property="og:url" content="https://xinlincai.github.io/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/index.html">
 <meta property="og:site_name" content="鑫宇的个人博客">
 <meta property="og:description" content="对象被判定为垃圾的标准对于java对象来讲，当没有被任何对象所引用时，该对象就是没用的。对于系统而言它就是垃圾，其占据的内存就要被释放，同时该对象也要被销毁。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20210805200054715.png">
-<meta property="og:image" content="http://yoursite.com/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20210806084405663.png">
-<meta property="og:image" content="http://yoursite.com/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20210806091340603.png">
-<meta property="og:image" content="http://yoursite.com/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20210806101737937.png">
-<meta property="og:image" content="http://yoursite.com/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/1.png">
-<meta property="og:image" content="http://yoursite.com/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20210806151741410.png">
-<meta property="og:image" content="http://yoursite.com/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/2.png">
-<meta property="og:image" content="http://yoursite.com/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/3.png">
-<meta property="og:image" content="http://yoursite.com/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/4.png">
-<meta property="og:image" content="http://yoursite.com/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/2.png">
-<meta property="og:image" content="http://yoursite.com/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/4.png">
-<meta property="og:image" content="http://yoursite.com/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/5.png">
-<meta property="og:image" content="http://yoursite.com/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20210807093408009.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20210805200054715.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20210806084405663.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20210806091340603.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20210806101737937.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/1.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20210806151741410.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/2.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/3.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/4.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/2.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/4.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/5.png">
+<meta property="og:image" content="https://xinlincai.github.io/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20210807093408009.png">
 <meta property="article:published_time" content="2021-08-04T02:03:05.000Z">
 <meta property="article:modified_time" content="2021-08-18T03:24:05.876Z">
 <meta property="article:author" content="rain">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20210805200054715.png">
+<meta name="twitter:image" content="https://xinlincai.github.io/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20210805200054715.png">
   
     <link rel="alternative" href="/atom.xml" title="鑫宇的个人博客" type="application/atom+xml">
   
@@ -88,7 +88,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/hermit-rain" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/XinlinCai" title="github"><i class="icon-github"></i></a>
 		        
 			</div>
 		</nav>
@@ -123,7 +123,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/hermit-rain" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/XinlinCai" title="github"><i class="icon-github"></i></a>
 			        
 				</div>
 			</nav>
@@ -450,7 +450,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hermit-rain.github.io/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xinlincai.github.io/2021/08/04/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" alt="微信分享二维码">
     </div>
 </div>
 
